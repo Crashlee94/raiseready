@@ -4,83 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RaiseReady - Raise Kids Ready for Real Life</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Heroicons CDN -->
+<script src="https://unpkg.com/feather-icons"></script>
+
 <style>
-  /* Basic Reset */
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family: 'Arial', sans-serif; line-height:1.6; color:#222;}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Montserrat', sans-serif; line-height:1.6; color:#222; }
 
-  /* Header */
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:white;
-    box-shadow:0 2px 6px rgba(0,0,0,0.05);
-    position:sticky;
-    top:0;
-    z-index:10;
-  }
-  header h1 {color:#ff5a3c;}
-  nav a {margin-left:25px; text-decoration:none; font-weight:bold; color:#333;}
-  nav a:hover {color:#ff5a3c;}
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:white; box-shadow:0 2px 6px rgba(0,0,0,0.05); position:sticky; top:0; z-index:10; }
+header h1 { color:#ff5a3c; font-weight:700; font-size:1.8rem; }
+nav a { margin-left:25px; text-decoration:none; font-weight:600; color:#333; transition:0.3s; }
+nav a:hover { color:#ff5a3c; }
 
-  /* Hero */
-  .hero {
-    height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg, #111, #444);
-    color:white;
-    padding:0 5%;
-  }
-  .hero h2 {font-size:48px; margin-bottom:20px;}
-  .hero p {font-size:20px; margin-bottom:30px; max-width:700px;}
-  .hero .btn {padding:15px 35px; background:#ff5a3c; color:white; text-decoration:none; font-weight:bold; border-radius:6px;}
-  .hero .btn:hover {opacity:0.9;}
+/* Hero */
+.hero { height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: linear-gradient(135deg,#ff5a3c,#ffb580); color:white; padding:0 5%; position:relative; }
+.hero h2 { font-size:4rem; margin-bottom:20px; font-weight:700; }
+.hero p { font-size:1.3rem; margin-bottom:30px; max-width:700px; }
+.hero .btn, .hero .btn-secondary { padding:18px 40px; border-radius:50px; font-weight:700; text-decoration:none; transition:all 0.3s; }
+.hero .btn { background:#fff; color:#ff5a3c; }
+.hero .btn:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+.hero .btn-secondary { background:transparent; color:white; border:2px solid white; margin-top:15px; }
+.hero .btn-secondary:hover { background:white; color:#ff5a3c; }
 
-  /* Sections */
-  section {padding:80px 10%;}
-  h2 {text-align:center; margin-bottom:40px; font-size:32px;}
+/* Sections */
+section { padding:80px 10%; }
+h2 { text-align:center; margin-bottom:40px; font-size:2.5rem; }
 
-  /* How it Works */
-  .steps {display:flex; flex-wrap:wrap; gap:30px; justify-content:center;}
-  .step {flex:1 1 250px; padding:30px; border:1px solid #eee; border-radius:10px; text-align:center; transition: transform 0.2s;}
-  .step:hover {transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-  .step h3 {margin-bottom:15px; color:#ff5a3c;}
-  
-  /* Skills Library */
-  .skills {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px;}
-  .skill-card {padding:20px; border:1px solid #eee; border-radius:10px; text-align:center; transition: transform 0.2s;}
-  .skill-card:hover {transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-  .skill-card h4 {margin-bottom:10px; color:#ff5a3c;}
+/* How it Works */
+.steps { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+.step { flex:1 1 250px; padding:30px; border-radius:15px; background:#fff; text-align:center; transition:all 0.3s; cursor:pointer; }
+.step:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 12px 35px rgba(0,0,0,0.15); }
+.step h3 { margin-bottom:15px; color:#ff5a3c; font-size:1.5rem; }
+.step p { font-size:1rem; color:#555; }
 
-  /* Roadmap Preview */
-  .roadmap {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-  .roadmap-card {flex:1 1 250px; padding:20px; border:1px solid #eee; border-radius:10px; transition: transform 0.2s;}
-  .roadmap-card:hover {transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-  .roadmap-card h4 {color:#ff5a3c; margin-bottom:10px;}
-  .roadmap-card ul {margin-left:20px; list-style-type: disc;}
+/* Skills Library */
+.skills { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px; }
+.skill-card { padding:25px; background:#fff; border-radius:15px; text-align:center; transition:all 0.3s; cursor:pointer; }
+.skill-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 12px 35px rgba(0,0,0,0.15); }
+.skill-card h4 { margin-bottom:15px; color:#ff5a3c; font-size:1.3rem; display:flex; align-items:center; justify-content:center; gap:10px; }
+.skill-card p { color:#555; }
 
-  /* CTA Section */
-  .cta {background:#111; color:white; text-align:center;}
-  .cta .btn {margin-top:20px; background:#ff5a3c;}
+/* Roadmap */
+.roadmap { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.roadmap-card { flex:1 1 250px; padding:25px; border-radius:15px; background:#fff; transition:all 0.3s; cursor:pointer; }
+.roadmap-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 12px 35px rgba(0,0,0,0.15); }
+.roadmap-card h4 { color:#ff5a3c; margin-bottom:10px; font-size:1.4rem; }
+.roadmap-card ul { max-height:0; overflow:hidden; transition:0.5s; margin-left:20px; color:#555; }
+.roadmap-card.active ul { max-height:500px; }
 
-  /* Footer */
-  footer {text-align:center; padding:30px; background:#000; color:#aaa;}
-  
-  /* Responsive */
-  @media(max-width:768px){
-    .steps, .skills, .roadmap {flex-direction:column; grid-template-columns:1fr;}
-    .hero h2 {font-size:36px;}
-  }
+/* CTA */
+.cta { background:#111; color:white; text-align:center; padding:80px 20px; }
+.cta .btn { margin-top:20px; background:#ff5a3c; color:#fff; padding:18px 40px; border-radius:50px; font-weight:700; transition:all 0.3s; }
+.cta .btn:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.3); }
+
+/* Footer */
+footer { text-align:center; padding:30px; background:#000; color:#aaa; }
+
+/* Responsive */
+@media(max-width:768px){
+  .steps, .skills, .roadmap {flex-direction:column; grid-template-columns:1fr;}
+  .hero h2 {font-size:2.8rem;}
+}
 </style>
 </head>
-<body>
 
+<body>
 <header>
   <h1>RaiseReady</h1>
   <nav>
@@ -95,6 +88,7 @@
   <h2>Raise Kids Ready for Real Life</h2>
   <p>Step-by-step guidance to help parents teach life skills, independence, and confidence — from newborns to young adults.</p>
   <a class="btn" href="#roadmap">Start Your Parenting Roadmap</a>
+  <a class="btn-secondary" href="#skills">See Skills Library</a>
 </section>
 
 <section id="how">
@@ -119,19 +113,19 @@
   <h2>Life Skills Library</h2>
   <div class="skills">
     <div class="skill-card">
-      <h4>💰 Money Skills</h4>
-      <p>Budgeting, savings, credit, banking, and taxes (Canada-specific guidance).</p>
+      <h4><i data-feather="dollar-sign"></i> Money Skills</h4>
+      <p>Budgeting, savings, banking, and taxes (Canada-focused).</p>
     </div>
     <div class="skill-card">
-      <h4>🏠 Home Skills</h4>
+      <h4><i data-feather="home"></i> Home Skills</h4>
       <p>Cooking, cleaning, laundry, grocery planning, and chores.</p>
     </div>
     <div class="skill-card">
-      <h4>🧠 Emotional Skills</h4>
+      <h4><i data-feather="users"></i> Emotional Skills</h4>
       <p>Communication, empathy, emotional intelligence, and confidence building.</p>
     </div>
     <div class="skill-card">
-      <h4>🔒 Safety & Awareness</h4>
+      <h4><i data-feather="shield"></i> Safety & Awareness</h4>
       <p>Stranger danger, online safety, social media awareness, and teen dating safety.</p>
     </div>
   </div>
@@ -140,7 +134,7 @@
 <section id="roadmap">
   <h2>Parenting Roadmap Preview</h2>
   <div class="roadmap">
-    <div class="roadmap-card">
+    <div class="roadmap-card" onclick="this.classList.toggle('active')">
       <h4>Age 3</h4>
       <ul>
         <li>Pick up toys</li>
@@ -148,7 +142,7 @@
         <li>Help set the table</li>
       </ul>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card" onclick="this.classList.toggle('active')">
       <h4>Age 10</h4>
       <ul>
         <li>Pack lunches</li>
@@ -156,7 +150,7 @@
         <li>Online safety basics</li>
       </ul>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card" onclick="this.classList.toggle('active')">
       <h4>Age 16</h4>
       <ul>
         <li>Budgeting</li>
@@ -175,6 +169,17 @@
 <footer>
   © 2026 RaiseReady
 </footer>
+
+<script>
+  feather.replace(); // renders the icons
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+    anchor.addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
+    });
+  });
+</script>
 
 </body>
 </html>
